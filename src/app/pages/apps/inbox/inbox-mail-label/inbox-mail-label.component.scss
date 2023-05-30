@@ -1,0 +1,14 @@
+@use 'sass:math';
+@import "var";
+
+.label {
+  font: var(--font-caption);
+  padding: math.div($spacing, 12) math.div($spacing, 3);
+  white-space: nowrap;
+
+  .indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+}

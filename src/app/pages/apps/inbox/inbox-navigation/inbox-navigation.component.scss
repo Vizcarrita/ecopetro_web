@@ -1,0 +1,24 @@
+@use 'sass:math';
+@import "var";
+
+.navigation {
+  margin-top: $spacing;
+
+  .mat-list-item {
+    cursor: pointer;
+    margin-top: math.div($spacing, 3);
+    margin-bottom: math.div($spacing, 3);
+    position: relative;
+    outline: none;
+    border-radius: $border-radius;
+
+    .mat-line {
+      font-weight: 500;
+    }
+  }
+
+  .mat-divider {
+    margin-top: math.div($spacing, 3);
+    margin-bottom: math.div($spacing, 3);
+  }
+}

@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   private static isInitialLoad = true;
   salesData$: Observable<ChartData>;
   totalSalesOptions: BarChartWidgetOptions = {
-    title: 'Total Viajes',
+    title: 'Total Sales',
     gain: 16.3,
     subTitle: 'compared to last month',
     background: '#3F51B5',

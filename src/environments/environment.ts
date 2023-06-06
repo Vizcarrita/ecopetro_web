@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  backend: 'https://ecopetro.cl/EcoPetroBackEnd-1/ecoPetroAPI' // Put your backend here
+  backend: 'http://localhost:4200' // Put your backend here
 };

@@ -54,54 +54,48 @@ export class AppComponent {
         pathMatchExact: true
       },
       {
-        name: 'Lista de usuarios',
-        routeOrFunction: '/tabla/lista-trabajadores',
+        name: 'All-In-One Table',
+        routeOrFunction: '/tables/all-in-one-table',
         icon: 'assignment',
         badge: '22',
         badgeColor: '#2196F3',
         position: 15,
       },
       {
-        name: 'Mantenciones de camiones',
-        routeOrFunction: '/maintense/camiones',
-        icon: 'build',
-        position: 15,
-      },
-      {
-        name: 'Calendario',
+        name: 'Calendar',
         routeOrFunction: '/apps/calendar',
         icon: 'date_range',
-        position: 25
+        position: 20
       },
       {
         name: 'Inbox',
         routeOrFunction: '/apps/inbox',
         icon: 'inbox',
-        position: 30
+        position: 25
       },
       {
         name: 'Chat',
         routeOrFunction: '/apps/chat',
         icon: 'chat',
-        position: 35,
+        position: 30,
         badge: '14',
         badgeColor: '#009688'
       },
       {
         name: 'USER INTERFACE',
         type: 'subheading',
-        position: 40
+        position: 35
       },
       {
         name: 'Components',
         routeOrFunction: '/components',
         icon: 'layers',
-        position: 45
+        position: 40
       },
       {
         name: 'Forms',
         icon: 'description',
-        position: 50,
+        position: 45,
         subItems: [
           {
             name: 'Form Elements',

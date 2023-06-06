@@ -7,10 +7,12 @@ import { Observable, of, ReplaySubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { ListColumn } from '../../../../@fury/shared/list/list-column.model';
 import { ALL_IN_ONE_TABLE_DEMO_DATA } from './all-in-one-table.demo';
+// import { UsuariosService } from '../../../services/usuarios.service';
 import { CustomerCreateUpdateComponent } from './customer-create-update/customer-create-update.component';
 import { Customer } from './customer-create-update/customer.model';
 import { fadeInRightAnimation } from '../../../../@fury/animations/fade-in-right.animation';
 import { fadeInUpAnimation } from '../../../../@fury/animations/fade-in-up.animation';
+// import { Usuario } from 'src/app/models/users.model';
 
 @Component({
   selector: 'fury-all-in-one-table',
@@ -24,9 +26,10 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit, OnDestroy 
    * Simulating a service with HTTP that returns Observables
    * You probably want to remove this and do all requests in a service with HTTP
    */
+
   subject$: ReplaySubject<Customer[]> = new ReplaySubject<Customer[]>(1);
   data$: Observable<Customer[]> = this.subject$.asObservable();
-  customers: Customer[];
+  customers: Customer[]=[];
 
   @Input()
   columns: ListColumn[] = [
@@ -47,8 +50,7 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit, OnDestroy 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private dialog: MatDialog) {
-  }
+  constructor(private dialog: MatDialog) { }
 
   get visibleColumns() {
     return this.columns.filter(column => column.visible).map(column => column.property);

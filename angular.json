@@ -165,5 +165,10 @@
         }
       }
     }
+  },
+  "cli": {
+    "warnings": {
+      "versionMismatch": false
+    }
   }
 }

@@ -61,7 +61,7 @@ const routes: Routes = [
         loadChildren: () => import('./pages/page-layouts/page-layouts.module').then(m => m.PageLayoutsModule),
       },
       {
-        path: 'tables/all-in-one-table',
+        path: 'tabla/lista-trabajadores',
         loadChildren: () => import('./pages/tables/all-in-one-table/all-in-one-table.module').then(m => m.AllInOneTableModule),
       },
       {
@@ -75,10 +75,6 @@ const routes: Routes = [
       {
         path: 'blank',
         loadChildren: () => import('./pages/blank/blank.module').then(m => m.BlankModule),
-      },
-      {
-        path: 'level1/level2/level3/level4/level5',
-        loadChildren: () => import('./pages/level5/level5.module').then(m => m.Level5Module),
       },
     ]
   }

@@ -8,6 +8,7 @@ import { LayoutModule } from './layout/layout.module';
 import { PendingInterceptorModule } from '../@fury/shared/loading-indicator/pending-interceptor.module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { MantencionesComponent } from './pages/mantenciones/mantenciones.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/mater
     // Register a Service Worker (optional)
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, MantencionesComponent],
   bootstrap: [AppComponent],
   providers: [
     {

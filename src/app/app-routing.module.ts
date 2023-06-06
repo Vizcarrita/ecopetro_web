@@ -61,7 +61,7 @@ const routes: Routes = [
         loadChildren: () => import('./pages/page-layouts/page-layouts.module').then(m => m.PageLayoutsModule),
       },
       {
-        path: 'tables/all-in-one-table',
+        path: 'tablas/usuarios',
         loadChildren: () => import('./pages/tables/all-in-one-table/all-in-one-table.module').then(m => m.AllInOneTableModule),
       },
       {

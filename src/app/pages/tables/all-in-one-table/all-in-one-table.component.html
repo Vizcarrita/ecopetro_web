@@ -1,10 +1,10 @@
 <fury-page-layout mode="card">
   <fury-page-layout-header>
-    <fury-breadcrumbs [@fadeInRight] [crumbs]="['Tables']" current="All-In-One Table"></fury-breadcrumbs>
+    <fury-breadcrumbs [@fadeInRight] [crumbs]="['tablas']" current="Lista de usuarios"></fury-breadcrumbs>
   </fury-page-layout-header>
 
   <fury-page-layout-content [@fadeInUp]>
-    <fury-list name="Customers" [columns]="columns" (filterChange)="onFilterChange($event)">
+    <fury-list name="Trabajadores" [columns]="columns" (filterChange)="onFilterChange($event)">
       <div class="actions">
         <button class="create" (click)="createCustomer()" type="button" mat-mini-fab color="primary">
           <mat-icon>add</mat-icon>

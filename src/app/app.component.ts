@@ -54,8 +54,8 @@ export class AppComponent {
         pathMatchExact: true
       },
       {
-        name: 'All-In-One Table',
-        routeOrFunction: '/tables/all-in-one-table',
+        name: 'Lista de usuarios',
+        routeOrFunction: '/tablas/usuarios',
         icon: 'assignment',
         badge: '22',
         badgeColor: '#2196F3',

@@ -54,8 +54,8 @@ export class AppComponent {
         pathMatchExact: true
       },
       {
-        name: 'All-In-One Table',
-        routeOrFunction: '/tables/all-in-one-table',
+        name: 'Lista de usuarios',
+        routeOrFunction: '/tablas/usuarios',
         icon: 'assignment',
         badge: '22',
         badgeColor: '#2196F3',
@@ -178,12 +178,6 @@ export class AppComponent {
         badgeColor: '#4CAF50'
       },
       {
-        name: 'Coming Soon',
-        routeOrFunction: '/coming-soon',
-        icon: 'watch_later',
-        position: 68
-      },
-      {
         name: 'Blank',
         routeOrFunction: '/blank',
         icon: 'picture_in_picture',
@@ -195,37 +189,6 @@ export class AppComponent {
         icon: 'grade',
         position: 75
       },
-      {
-        name: 'Multi-Level Menu',
-        icon: 'menu',
-        position: 85,
-        subItems: [
-          {
-            name: 'Level 1',
-            subItems: [
-              {
-                name: 'Level 2',
-                subItems: [
-                  {
-                    name: 'Level 3',
-                    subItems: [
-                      {
-                        name: 'Level 4',
-                        subItems: [
-                          {
-                            name: 'Level 5',
-                            routeOrFunction: '/level1/level2/level3/level4/level5'
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
     ]);
   }
 }

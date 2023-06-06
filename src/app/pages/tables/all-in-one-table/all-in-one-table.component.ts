@@ -11,6 +11,7 @@ import { CustomerCreateUpdateComponent } from './customer-create-update/customer
 import { Customer } from './customer-create-update/customer.model';
 import { fadeInRightAnimation } from '../../../../@fury/animations/fade-in-right.animation';
 import { fadeInUpAnimation } from '../../../../@fury/animations/fade-in-up.animation';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'fury-all-in-one-table',
@@ -32,13 +33,11 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit, OnDestroy 
   columns: ListColumn[] = [
     { name: 'Checkbox', property: 'checkbox', visible: false },
     { name: 'Image', property: 'image', visible: true },
-    { name: 'Name', property: 'name', visible: true, isModelProperty: true },
-    { name: 'First Name', property: 'firstName', visible: false, isModelProperty: true },
-    { name: 'Last Name', property: 'lastName', visible: false, isModelProperty: true },
-    { name: 'Street', property: 'street', visible: true, isModelProperty: true },
-    { name: 'Zipcode', property: 'zipcode', visible: true, isModelProperty: true },
-    { name: 'City', property: 'city', visible: true, isModelProperty: true },
-    { name: 'Phone', property: 'phoneNumber', visible: true, isModelProperty: true },
+    { name: 'Nombre', property: 'name', visible: true, isModelProperty: true },
+    { name: 'Apellido', property: 'lastName', visible: false, isModelProperty: true },
+    { name: 'Calle', property: 'street', visible: true, isModelProperty: true },
+    { name: 'Correo', property: 'city', visible: true, isModelProperty: true },
+    { name: 'Telefono', property: 'phoneNumber', visible: true, isModelProperty: true },
     { name: 'Actions', property: 'actions', visible: true },
   ] as ListColumn[];
   pageSize = 10;
@@ -47,7 +46,8 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit, OnDestroy 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog,
+              private usuariosService:UsuariosService) {
   }
 
   get visibleColumns() {
@@ -81,6 +81,7 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit, OnDestroy 
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+
 
   createCustomer() {
     this.dialog.open(CustomerCreateUpdateComponent).afterClosed().subscribe((customer: Customer) => {

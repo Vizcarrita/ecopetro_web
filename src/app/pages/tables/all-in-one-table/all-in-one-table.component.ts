@@ -6,9 +6,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Observable, of, ReplaySubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { ListColumn } from '../../../../@fury/shared/list/list-column.model';
-import { ALL_IN_ONE_TABLE_DEMO_DATA } from './all-in-one-table.demo';
+// import { ALL_IN_ONE_TABLE_DEMO_DATA } from './all-in-one-table.demo';
 import { CustomerCreateUpdateComponent } from './customer-create-update/customer-create-update.component';
-import { Customer } from './customer-create-update/customer.model';
+import { Customer } from '../../../models/customer.model';
 import { fadeInRightAnimation } from '../../../../@fury/animations/fade-in-right.animation';
 import { fadeInUpAnimation } from '../../../../@fury/animations/fade-in-up.animation';
 import { UsuariosService } from 'src/app/services/usuarios.service';
@@ -27,17 +27,18 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit, OnDestroy 
    */
   subject$: ReplaySubject<Customer[]> = new ReplaySubject<Customer[]>(1);
   data$: Observable<Customer[]> = this.subject$.asObservable();
-  customers: Customer[];
+  customers: Customer[]=[];
+
 
   @Input()
   columns: ListColumn[] = [
     { name: 'Checkbox', property: 'checkbox', visible: false },
     { name: 'Image', property: 'image', visible: true },
-    { name: 'Nombre', property: 'name', visible: true, isModelProperty: true },
-    { name: 'Apellido', property: 'lastName', visible: false, isModelProperty: true },
+    { name: 'Nombre', property: 'nombreUsuario', visible: true, isModelProperty: true },
+    { name: 'Apellido', property: 'apellido', visible: false, isModelProperty: true },
     { name: 'Calle', property: 'street', visible: true, isModelProperty: true },
-    { name: 'Correo', property: 'city', visible: true, isModelProperty: true },
-    { name: 'Telefono', property: 'phoneNumber', visible: true, isModelProperty: true },
+    { name: 'Correo', property: 'correo', visible: true, isModelProperty: true },
+    { name: 'Telefono', property: 'telefono', visible: true, isModelProperty: true },
     { name: 'Actions', property: 'actions', visible: true },
   ] as ListColumn[];
   pageSize = 10;
@@ -58,15 +59,15 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit, OnDestroy 
    * Example on how to get data and pass it to the table - usually you would want a dedicated service with a HTTP request for this
    * We are simulating this request here.
    */
-  getData() {
-    return of(ALL_IN_ONE_TABLE_DEMO_DATA.map(customer => new Customer(customer)));
-  }
+  // getData() {
+  //   return of(ALL_IN_ONE_TABLE_DEMO_DATA.map(customer => new Customer(customer)));
+  // }
 
   ngOnInit() {
-    this.getData().subscribe(customers => {
-      this.subject$.next(customers);
-    });
-
+    // this.getData().subscribe(customers => {
+    //   this.subject$.next(customers);
+    // });
+    this.getData();
     this.dataSource = new MatTableDataSource();
 
     this.data$.pipe(
@@ -82,50 +83,58 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit, OnDestroy 
     this.dataSource.sort = this.sort;
   }
 
-
-  createCustomer() {
-    this.dialog.open(CustomerCreateUpdateComponent).afterClosed().subscribe((customer: Customer) => {
-      /**
-       * Customer is the updated customer (if the user pressed Save - otherwise it's null)
-       */
-      if (customer) {
-        /**
-         * Here we are updating our local array.
-         * You would probably make an HTTP request here.
-         */
-        this.customers.unshift(new Customer(customer));
-        this.subject$.next(this.customers);
-      }
+  getData() {
+    this.usuariosService.getUsuarios().subscribe(customers => {
+      this.customers = customers;
+      console.log(this.customers);
     });
   }
+  
 
-  updateCustomer(customer) {
-    this.dialog.open(CustomerCreateUpdateComponent, {
-      data: customer
-    }).afterClosed().subscribe((customer) => {
-      /**
-       * Customer is the updated customer (if the user pressed Save - otherwise it's null)
-       */
-      if (customer) {
-        /**
-         * Here we are updating our local array.
-         * You would probably make an HTTP request here.
-         */
-        const index = this.customers.findIndex((existingCustomer) => existingCustomer.id === customer.id);
-        this.customers[index] = new Customer(customer);
-        this.subject$.next(this.customers);
-      }
-    });
-  }
 
-  deleteCustomer(customer) {
-    /**
-     * Here we are updating our local array.
-     * You would probably make an HTTP request here.
-     */
-    this.customers.splice(this.customers.findIndex((existingCustomer) => existingCustomer.id === customer.id), 1);
-    this.subject$.next(this.customers);
-  }
+  // createCustomer() {
+  //   this.dialog.open(CustomerCreateUpdateComponent).afterClosed().subscribe((customer: Customer) => {
+  //     /**
+  //      * Customer is the updated customer (if the user pressed Save - otherwise it's null)
+  //      */
+  //     if (customer) {
+  //       /**
+  //        * Here we are updating our local array.
+  //        * You would probably make an HTTP request here.
+  //        */
+  //       this.customers.unshift(new Customer(customer));
+  //       this.subject$.next(this.customers);
+  //     }
+  //   });
+  // }
+
+  // updateCustomer(customer) {
+  //   this.dialog.open(CustomerCreateUpdateComponent, {
+  //     data: customer
+  //   }).afterClosed().subscribe((customer) => {
+  //     /**
+  //      * Customer is the updated customer (if the user pressed Save - otherwise it's null)
+  //      */
+  //     if (customer) {
+  //       /**
+  //        * Here we are updating our local array.
+  //        * You would probably make an HTTP request here.
+  //        */
+  //       const index = this.customers.findIndex((existingCustomer) => existingCustomer.idUsuario === customer.idUsuario);
+  //       this.customers[index] = new Customer(customer);
+  //       this.subject$.next(this.customers);
+  //     }
+  //   });
+  // }
+
+  // deleteCustomer(customer) {
+  //   /**
+  //    * Here we are updating our local array.
+  //    * You would probably make an HTTP request here.
+  //    */
+  //   this.customers.splice(this.customers.findIndex((existingCustomer) => existingCustomer.id === customer.id), 1);
+  //   this.subject$.next(this.customers);
+  // }
 
   onFilterChange(value) {
     if (!this.dataSource) {

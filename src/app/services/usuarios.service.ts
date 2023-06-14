@@ -1,8 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
-import { Usuario } from '../../app/interface/usuarios.interface';
+
 import { Observable } from "rxjs";
+import { Customer } from "../models/customer.model";
 
 @Injectable({providedIn:'root'})
 export class UsuariosService {
@@ -11,7 +12,8 @@ export class UsuariosService {
 
     constructor(private http: HttpClient){ }
 
-    getUsuarios():Observable<Usuario[]>{
-        return this.http.get<Usuario[]>(`${this.baseUrl}/usuarios`);
+    getUsuarios():Observable<Customer[]>{
+        return this.http.get<Customer[]>(`${this.baseUrl}/usuarios`);
     }
+    
 }

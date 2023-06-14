@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Customer } from './customer.model';
+import { Customer } from '../../../../models/customer.model';
 
 @Component({
   selector: 'fury-customer-create-update',

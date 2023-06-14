@@ -216,7 +216,7 @@ export class DashboardService {
       labels: chartData.labels,
       datasets: [
         {
-          label: 'Users',
+          label: 'Viajes',
           data: chartData.data.thisWeek,
           lineTension: 0,
           fill: false,
@@ -224,7 +224,7 @@ export class DashboardService {
           pointRadius: 0
         },
         {
-          label: 'Users - Last Week',
+          label: 'Viajes semana pasada',
           data: chartData.data.lastWeek,
           lineTension: 0,
           fill: false,

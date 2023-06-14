@@ -5,11 +5,11 @@
 
   <fury-page-layout-content [@fadeInUp]>
     <fury-list name="Trabajadores" [columns]="columns" (filterChange)="onFilterChange($event)">
-      <div class="actions">
+      <!-- <div class="actions">
         <button class="create" (click)="createCustomer()" type="button" mat-mini-fab color="primary">
           <mat-icon>add</mat-icon>
         </button>
-      </div>
+      </div> -->
 
       <table [dataSource]="dataSource" mat-table matSort>
 

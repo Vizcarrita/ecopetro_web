@@ -1,0 +1,15 @@
+@use 'sass:math';
+@import "var";
+
+.source {
+  margin-bottom: math.div($spacing, 2);
+  margin-left: -$spacing;
+  margin-right: -$spacing;
+}
+
+.result {
+
+  .description {
+    margin: 0 0 math.div($spacing, 3) 0;
+  }
+}

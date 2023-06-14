@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   private static isInitialLoad = true;
   salesData$: Observable<ChartData>;
   totalSalesOptions: BarChartWidgetOptions = {
-    title: 'Total Sales',
+    title: 'Total Viajes',
     gain: 16.3,
     subTitle: 'compared to last month',
     background: '#3F51B5',
@@ -130,41 +130,53 @@ export class DashboardComponent implements OnInit {
     // Audience Overview Widget
     this.dashboardService.getAudienceOverviewUsers().subscribe(response => {
       this.audienceOverviewOptions.push({
-        label: 'Users',
+        label: 'Viajes',
         data: response
       } as AudienceOverviewWidgetOptions);
     });
     this.dashboardService.getAudienceOverviewSessions().subscribe(response => {
       this.audienceOverviewOptions.push({
-        label: 'Sessions',
+        label: 'Choferes',
         data: response
       } as AudienceOverviewWidgetOptions);
     });
-    this.dashboardService.getAudienceOverviewBounceRate().subscribe(response => {
-      const property: AudienceOverviewWidgetOptions = {
-        label: 'Bounce Rate',
+    this.dashboardService.getAudienceOverviewSessions().subscribe(response => {
+      this.audienceOverviewOptions.push({
+        label: 'Viajes Pendientes',
         data: response
-      };
-
-      // Calculate Bounce Rate Average
-      const data = response.datasets[0].data as number[];
-      property.sum = `${(data.reduce((sum, x) => sum + x) / data.length).toFixed(2)}%`;
-
-      this.audienceOverviewOptions.push(property);
+      } as AudienceOverviewWidgetOptions);
     });
+    // this.dashboardService.getAudienceOverviewBounceRate().subscribe(response => {
+    //   const property: AudienceOverviewWidgetOptions = {
+    //     label: 'Viajes Pendientes',
+    //     data: response
+    //   };
 
-    this.dashboardService.getAudienceOverviewSessionDuration().subscribe(response => {
-      const property: AudienceOverviewWidgetOptions = {
-        label: 'Session Duration',
+    //   // Calculate Bounce Rate Average
+    //   const data = response.datasets[0].data as number[];
+    //   property.sum = `${(data.reduce((sum, x) => sum + x) / data.length).toFixed(2)}%`;
+
+    //   this.audienceOverviewOptions.push(property);
+    // });
+
+    // this.dashboardService.getAudienceOverviewSessionDuration().subscribe(response => {
+    //   const property: AudienceOverviewWidgetOptions = {
+    //     label: 'Mantenciones',
+    //     data: response
+    //   };
+
+    //   // Calculate Average Session Duration and Format to Human Readable Format
+    //   const data = response.datasets[0].data as number[];
+    //   const averageSeconds = (data.reduce((sum, x) => sum + x) / data.length).toFixed(0);
+    //   property.sum = `${averageSeconds} sec`;
+
+    //   this.audienceOverviewOptions.push(property);
+    // });
+    this.dashboardService.getAudienceOverviewSessions().subscribe(response => {
+      this.audienceOverviewOptions.push({
+        label: 'Mantenciones Pendientes',
         data: response
-      };
-
-      // Calculate Average Session Duration and Format to Human Readable Format
-      const data = response.datasets[0].data as number[];
-      const averageSeconds = (data.reduce((sum, x) => sum + x) / data.length).toFixed(0);
-      property.sum = `${averageSeconds} sec`;
-
-      this.audienceOverviewOptions.push(property);
+      } as AudienceOverviewWidgetOptions);
     });
 
     // Prefill realtimeUsersData with 30 random values

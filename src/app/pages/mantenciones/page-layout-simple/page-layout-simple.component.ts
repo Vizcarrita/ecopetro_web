@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from '../../../models/customer.model';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'fury-page-layout-simple',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageLayoutSimpleComponent implements OnInit {
 
-  constructor() { }
+  customers: Customer[]=[];
+
+  constructor(private usuariosService:UsuariosService) { }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  getData() {
+    this.usuariosService.getUsuarios().subscribe(customers => {
+      this.customers = customers;
+      console.log(this.customers);
+    });
   }
 
 }

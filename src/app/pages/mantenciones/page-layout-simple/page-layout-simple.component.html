@@ -6,6 +6,11 @@
 
   <fury-page-layout-content>
     <h1>Mantenciones Camiones pendientes</h1>
+    <ul>
+      <li *ngFor="let user of customers">
+        {{ user.nombreUsuario }} - {{ user.apellido }}
+      </li>
+    </ul>
   </fury-page-layout-content>
 
 </fury-page-layout>

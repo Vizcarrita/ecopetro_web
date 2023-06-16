@@ -10,12 +10,11 @@ import { Customer } from '../../../../models/customer.model';
 })
 export class CustomerCreateUpdateComponent implements OnInit {
 
-  static id = 100;
-
+  customers: Customer[]=[];
   form: UntypedFormGroup;
   mode: 'create' | 'update' = 'create';
 
-  constructor(@Inject(MAT_DIALOG_DATA) public defaults: any,
+  constructor(@Inject(MAT_DIALOG_DATA) public defaults: Customer,
               private dialogRef: MatDialogRef<CustomerCreateUpdateComponent>,
               private fb: UntypedFormBuilder) {
   }
@@ -28,14 +27,13 @@ export class CustomerCreateUpdateComponent implements OnInit {
     }
 
     this.form = this.fb.group({
-      id: [CustomerCreateUpdateComponent.id++],
-      firstName: [this.defaults.firstName || '',],
-      lastName: [this.defaults.lastName || ''],
-      street: this.defaults.street || '',
-      city: this.defaults.city || '',
-      zipcode: this.defaults.zipcode || '',
-      phoneNumber: this.defaults.phoneNumber || '',
+      id: [this.defaults.idUsuario],
+      nombreUsuario: [this.defaults.nombreUsuario || '',],
+      apellido: [this.defaults.apellido || ''],
+      correo: this.defaults.correo || '',
+      telefono: this.defaults.telefono || '',
     });
+    console.log(this.form.controls.id.value);
   }
 
   save() {
@@ -53,7 +51,7 @@ export class CustomerCreateUpdateComponent implements OnInit {
 
   updateCustomer() {
     const customer = this.form.value;
-    customer.id = this.defaults.id;
+    customer.id = this.defaults.idUsuario;
 
     this.dialogRef.close(customer);
   }

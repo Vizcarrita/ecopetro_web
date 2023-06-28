@@ -2,14 +2,14 @@ import { EstadoUsuario } from "./estadoUsuario.model";
 import { FkTipoUsuario } from "./fkTipoUsuario.model";
 
 export class Customer{
-  idUsuario      : number;
-  nombreUsuario  : string;
-  apellido       : string;
-  correo         : string;
-  fechaCreacion  : string;
-  telefono       : string;
-  FKTipoUsuario  : FkTipoUsuario;
-  estadoUsuario  : EstadoUsuario;
+  nombreUsuario   : string;
+  apellido        : string;
+  correo          : string;
+  telefono        : string;
+  idUsuario?      : number;
+  fechaCreacion?  : string;
+  FKTipoUsuario?  : FkTipoUsuario;
+  estadoUsuario?  : EstadoUsuario;
   constructor(customer){
     this.idUsuario      = customer.idUsuario;
     this.nombreUsuario  = customer.nombreUsuario;

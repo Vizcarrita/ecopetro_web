@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
 import { SplashScreenService } from '../@fury/services/splash-screen.service';
+import { UsuariosService } from './services/usuarios.service';
 
 @Component({
   selector: 'fury-root',
@@ -18,6 +19,7 @@ export class AppComponent {
               private iconRegistry: MatIconRegistry,
               private renderer: Renderer2,
               private themeService: ThemeService,
+              private usuariosService: UsuariosService,
               @Inject(DOCUMENT) private document: Document,
               private platform: Platform,
               private route: ActivatedRoute,
@@ -57,7 +59,6 @@ export class AppComponent {
         name: 'Lista de usuarios',
         routeOrFunction: '/tablas/usuarios',
         icon: 'assignment',
-        badge: '15',
         badgeColor: '#2196F3',
         position: 15,
       },
@@ -86,7 +87,6 @@ export class AppComponent {
         routeOrFunction: '/apps/chat',
         icon: 'chat',
         position: 35,
-        badge: '14',
         badgeColor: '#009688'
       },
       {
@@ -199,4 +199,5 @@ export class AppComponent {
       },
     ]);
   }
+
 }

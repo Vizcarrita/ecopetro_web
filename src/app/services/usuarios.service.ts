@@ -12,6 +12,10 @@ export class UsuariosService {
 
     constructor(private http: HttpClient){ }
 
+    addNewCustomer(customer: Customer): Observable<Customer>{
+        return this.http.post<Customer>(`${this.baseUrl}/usuarios`,customer);
+    }
+
     getUsuarios():Observable<Customer[]>{
         return this.http.get<Customer[]>(`${this.baseUrl}/usuarios`);
     }

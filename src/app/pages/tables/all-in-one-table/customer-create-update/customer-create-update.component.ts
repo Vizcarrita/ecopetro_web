@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Customer } from '../../../../models/customer.model';
+import { UsuariosService } from '../../../../services/usuarios.service';
 
 @Component({
   selector: 'fury-customer-create-update',
@@ -11,12 +12,20 @@ import { Customer } from '../../../../models/customer.model';
 export class CustomerCreateUpdateComponent implements OnInit {
 
   customers: Customer[]=[];
-  form: UntypedFormGroup;
+
   mode: 'create' | 'update' = 'create';
+
+  form: FormGroup = this.fb.group({
+    nombreUsuario: ["",[Validators.required]],
+    apellido: ["",[Validators.required]],
+    correo: ["",[Validators.required]],
+    telefono: ["",[Validators.required]],
+  });
 
   constructor(@Inject(MAT_DIALOG_DATA) public defaults: Customer,
               private dialogRef: MatDialogRef<CustomerCreateUpdateComponent>,
-              private fb: UntypedFormBuilder) {
+              private fb: FormBuilder,
+              private usuariosService:UsuariosService) {
   }
 
   ngOnInit() {
@@ -25,15 +34,6 @@ export class CustomerCreateUpdateComponent implements OnInit {
     } else {
       this.defaults = {} as Customer;
     }
-
-    this.form = this.fb.group({
-      id: [this.defaults.idUsuario],
-      nombreUsuario: [this.defaults.nombreUsuario || '',],
-      apellido: [this.defaults.apellido || ''],
-      correo: this.defaults.correo || '',
-      telefono: this.defaults.telefono || '',
-    });
-    console.log(this.form.controls.id.value);
   }
 
   save() {
@@ -46,12 +46,13 @@ export class CustomerCreateUpdateComponent implements OnInit {
 
   createCustomer() {
     const customer = this.form.value;
+    this.usuariosService.addNewCustomer(customer).subscribe();
     this.dialogRef.close(customer);
   }
 
   updateCustomer() {
     const customer = this.form.value;
-    customer.id = this.defaults.idUsuario;
+    customer.idUsuario = this.form.value;
 
     this.dialogRef.close(customer);
   }

@@ -16,7 +16,6 @@ export class CustomerCreateUpdateComponent implements OnInit {
   mode: 'create' | 'update' = 'create';
 
   form: FormGroup = this.fb.group({
-    idUsuario:[],
     nombreUsuario: [,[Validators.required]],
     apellido: [,[Validators.required]],
     correo: [,[Validators.required]],
@@ -32,17 +31,10 @@ export class CustomerCreateUpdateComponent implements OnInit {
   ngOnInit() {
     if (this.defaults) {
       this.mode = 'update';
-      this.form.patchValue({
-        idUsuario: this.defaults.idUsuario,
-        nombreUsuario: this.defaults.nombreUsuario,
-        apellido: this.defaults.apellido,
-        correo: this.defaults.correo,
-        telefono: this.defaults.telefono
-      });
-
     } else {
       this.defaults = {} as Customer;
     }
+    console.log('Valor de defaults:', this.defaults);
   }
 
   save() {
@@ -61,8 +53,8 @@ export class CustomerCreateUpdateComponent implements OnInit {
 
   updateCustomer() {
     const customer = this.form.value;
-    console.log(customer)
-    this.usuariosService.updateCustomer(customer).subscribe()
+    customer.idUsuario = this.form.value;
+
     this.dialogRef.close(customer);
   }
 

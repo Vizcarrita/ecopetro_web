@@ -19,5 +19,13 @@ export class UsuariosService {
     getUsuarios():Observable<Customer[]>{
         return this.http.get<Customer[]>(`${this.baseUrl}/usuarios`);
     }
+
+    getCustomerPorId(idUsuario: number):Observable<Customer>{
+        return this.http.get<Customer>(`${this.baseUrl}/usuarios/${idUsuario}`)
+    }
+
+    updateCustomer(customer: Customer): Observable<Customer>{
+        return this.http.put<Customer>(`${this.baseUrl}/usuarios/cambiarDatos/${customer.idUsuario}`, customer);
+    }
     
 }

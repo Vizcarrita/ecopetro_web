@@ -66,7 +66,7 @@ const routes: Routes = [
       },
       {
         path: 'mantenciones/camion',
-        loadChildren: () => import('./pages/mantenciones/mantenciones.module').then(m => m.MantencionesModule),
+        loadChildren: () => import('./pages/tables/table-camion/all-in-one-table.module').then(m => m.AllInOneTableModule),
       },
       {
         path: 'drag-and-drop',

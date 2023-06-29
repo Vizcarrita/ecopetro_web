@@ -28,4 +28,7 @@ export class UsuariosService {
         return this.http.put<Customer>(`${this.baseUrl}/usuarios/cambiarDatos/${customer.idUsuario}`, customer);
     }
     
+    deleteCustomer(idUsuario: number): Observable<Customer>{
+        return this.http.delete<Customer>(`${this.baseUrl}/usuarios/${idUsuario}` );
+    }
 }

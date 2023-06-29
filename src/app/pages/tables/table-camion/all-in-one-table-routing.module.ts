@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageLayoutSimpleComponent } from './page-layout-simple.component';
+import { AllInOneTableComponent } from './all-in-one-table.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PageLayoutSimpleComponent
+    component: AllInOneTableComponent
   }
 ];
 
@@ -13,5 +13,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PageLayoutSimpleRoutingModule {
+export class AllInOneTableRoutingModule {
 }

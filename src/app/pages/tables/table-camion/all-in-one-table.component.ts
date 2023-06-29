@@ -30,6 +30,7 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit {
   
     @Input()
     columns: ListColumn[] = [
+      { name: 'Checkbox', property: 'checkbox', visible: false },
       { name: 'Image', property: 'image', visible: true },
       { name: 'Nombre', property: 'nombreUsuario', visible: true, isModelProperty: true },
       { name: 'Apellido', property: 'apellido', visible: true, isModelProperty: true },
@@ -51,7 +52,19 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit {
       return this.columns.filter(column => column.visible).map(column => column.property);
     }
   
+    /**
+     * Example on how to get data and pass it to the table - usually you would want a dedicated service with a HTTP request for this
+     * We are simulating this request here.
+     */
+    // getData() {
+    //   return of(ALL_IN_ONE_TABLE_DEMO_DATA.map(customer => new Customer(customer)));
+    // }
+  
     ngOnInit() {
+  
+      // this.getData().subscribe(customers => {
+      //   this.subject$.next(customers);
+      // });
       this.getData();
       this.dataSource = new MatTableDataSource();
   
@@ -83,6 +96,10 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit {
           * Customer is the updated customer (if the user pressed Save - otherwise it's null)
           */
          if (customer) {
+           /**
+            * Here we are updating our local array.
+            * You would probably make an HTTP request here.
+            */
            this.customers.unshift(new Customer(customer));
            this.subject$.next(this.customers);
          }

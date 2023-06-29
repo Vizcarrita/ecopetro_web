@@ -80,7 +80,7 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit {
     createCustomer() {
        this.dialog.open(CustomerCreateUpdateComponent).afterClosed().subscribe((customer: Customer) => {
          /**
-          * Customer is the updated customer (if the user pressed Save - otherwise it's null)
+          * El cliente es el cliente actualizado (si el usuario presionó "Agregar Usuario", de lo contrario es nulo)
           */
          if (customer) {
            this.customers.unshift(new Customer(customer));
@@ -105,10 +105,7 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit {
     }
     
     deleteCustomer(customer) {
-      /**
-       * Here we are updating our local array.
-       * You would probably make an HTTP request here.
-       */
+      this.usuariosService.deleteCustomer(customer.idUsuario).subscribe();
       this.customers.splice(this.customers.findIndex((existingCustomer) => existingCustomer.idUsuario === customer.idUsuario), 1);
       this.subject$.next(this.customers);
     }

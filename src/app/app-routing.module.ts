@@ -4,12 +4,8 @@ import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
-    path: 'login',
-    loadChildren: () => import('./pages/authentication/login/login.module').then(m => m.LoginModule),
-  },
-  {
-    path: 'register',
-    loadChildren: () => import('./pages/authentication/register/register.module').then(m => m.RegisterModule),
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: 'forgot-password',

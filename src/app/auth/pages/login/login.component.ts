@@ -32,7 +32,7 @@ export class LoginComponent {
     const { correo, password } = this.form.value;
     this.authService.login(correo, password).subscribe(ok => {
       if (ok === true) {
-        this.router.navigate(['/']);;
+        this.router.navigate(['/']);
         this.snackbar.open('Bienvenido', 'Ok', {
           duration: 10000
         });
@@ -40,7 +40,6 @@ export class LoginComponent {
         this.router.navigateByUrl('/auth/login');
       }
     });
-    console.log(this.authService.login);
   }
 
   toggleVisibility() {

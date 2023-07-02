@@ -11,8 +11,8 @@
         <div fxFlex="auto" fxLayout="column">
           <mat-form-field fxFlex="grow">
             <mat-label>Correo</mat-label>
-            <input matInput required formControlName="email">
-            <mat-error *ngIf="form.get('email').hasError('required')">Necesitas una dirección de correo para iniciar sesión</mat-error>
+            <input matInput required formControlName="correo">
+            <mat-error *ngIf="form.get('correo').hasError('required')">Necesitas una dirección de correo para iniciar sesión</mat-error>
           </mat-form-field>
           <mat-form-field fxFlex="grow">
             <mat-label>Contraseña</mat-label>
@@ -34,7 +34,7 @@
         </button>
         <p class="secondary-text text-center">
           Aun no tienes cuenta?<br/>
-          <a [routerLink]="['/register']">Haga clic aquí para crear una</a>
+          <a [routerLink]="['/auth/register']">Haga clic aquí para crear una</a>
         </p>
       </div>
     </div>

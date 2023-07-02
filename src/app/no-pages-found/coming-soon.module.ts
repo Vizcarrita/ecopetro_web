@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ComingSoonRoutingModule } from './coming-soon-routing.module';
 import { ComingSoonComponent } from './coming-soon.component';
-import { FurySharedModule } from '../../../@fury/fury-shared.module';
-import { FuryCardModule } from '../../../@fury/shared/card/card.module';
+import { FurySharedModule } from '../../@fury/fury-shared.module';
+import { FuryCardModule } from '../../@fury/shared/card/card.module';
 
 @NgModule({
   imports: [

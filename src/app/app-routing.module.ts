@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { ComingSoonComponent } from './no-pages-found/coming-soon.component';
 
 const routes: Routes = [
   {
@@ -10,10 +11,6 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     loadChildren: () => import('./pages/authentication/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule),
-  },
-  {
-    path: 'coming-soon',
-    loadChildren: () => import('./pages/coming-soon/coming-soon.module').then(m => m.ComingSoonModule),
   },
   {
     path: '',
@@ -76,12 +73,12 @@ const routes: Routes = [
         path: 'blank',
         loadChildren: () => import('./pages/blank/blank.module').then(m => m.BlankModule),
       },
-      {
-        path: 'level1/level2/level3/level4/level5',
-        loadChildren: () => import('./pages/level5/level5.module').then(m => m.Level5Module),
-      },
     ]
-  }
+  },
+  {
+    path: '**',
+    component: ComingSoonComponent
+  },
 ];
 
 @NgModule({

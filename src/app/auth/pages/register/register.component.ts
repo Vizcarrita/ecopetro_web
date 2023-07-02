@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
   }
 
   send() {
-    this.router.navigate(['/']);
+    this.router.navigateByUrl('/dashboard');
   }
 
   toggleVisibility() {

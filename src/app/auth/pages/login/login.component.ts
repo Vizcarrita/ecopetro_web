@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { fadeInUpAnimation } from '../../../../@fury/animations/fade-in-up.animation';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'fury-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
   emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 
   form:FormGroup = this.fb.group({
-    email: ['', [Validators.required,Validators.pattern(this.emailPattern)]],
+    correo: ['', [Validators.required,Validators.pattern(this.emailPattern)]],
     password: ['', [Validators.required, Validators.minLength(45)]],
   });
   inputType = 'password';
@@ -24,13 +25,22 @@ export class LoginComponent {
   constructor(private router: Router,
               private fb: FormBuilder,
               private cd: ChangeDetectorRef,
-              private snackbar: MatSnackBar) { }
+              private snackbar: MatSnackBar,
+              private authService: AuthService) { }
 
   send() {
-    this.router.navigate(['/']);
-    this.snackbar.open('Bienvenido', 'Ok', {
-      duration: 10000
+    const { correo, password } = this.form.value;
+    this.authService.login(correo, password).subscribe(ok => {
+      if (ok === true) {
+        this.router.navigate(['/']);;
+        this.snackbar.open('Bienvenido', 'Ok', {
+          duration: 10000
+        });
+      } else {
+        this.router.navigateByUrl('/auth/login');
+      }
     });
+    console.log(this.authService.login);
   }
 
   toggleVisibility() {

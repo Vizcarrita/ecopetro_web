@@ -16,7 +16,7 @@ export class UsuariosService {
         return this.http.post<Customer>(`${this.baseUrl}/usuarios`,customer);
     }
 
-    getUsuarios():Observable<Customer[]>{
+    getCustomer():Observable<Customer[]>{
         return this.http.get<Customer[]>(`${this.baseUrl}/usuarios`);
     }
 

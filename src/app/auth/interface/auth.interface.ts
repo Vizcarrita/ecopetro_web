@@ -11,6 +11,7 @@ export interface AuthResponse {
 }
 
 export interface Usuario{
-    id: string;
-    correo: string;
+    id              : number;
+    correo          : string;
+    nombreUsuario   : string;
 }

@@ -1,7 +1,8 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { fadeInUpAnimation } from '../../../../@fury/animations/fade-in-up.animation';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'fury-register',
@@ -9,29 +10,30 @@ import { fadeInUpAnimation } from '../../../../@fury/animations/fade-in-up.anima
   styleUrls: ['./register.component.scss'],
   animations: [fadeInUpAnimation]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   
-  form: UntypedFormGroup;
+  form: FormGroup = this.fb.group({
+    idUsuario: [],
+    nombreUsuario: [, Validators.required],
+    apellido: [, Validators.required],
+    correo: [, Validators.required],
+    // password: [, Validators.required],
+    telefono: ['+569']
+  });
 
   inputType = 'password';
   visible = false;
 
   constructor(private router: Router,
-              private fb: UntypedFormBuilder,
-              private cd: ChangeDetectorRef
-  ) { }
-
-  ngOnInit() {
-    this.form = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      passwordConfirm: ['', Validators.required],
-    });
-  }
+              private fb: FormBuilder,
+              private cd: ChangeDetectorRef,
+              private usuariosService: UsuariosService) { }
 
   send() {
-    this.router.navigateByUrl('/dashboard');
+    const usuario = this.form.value;
+    this.usuariosService.addNewCustomer(usuario).subscribe();
+    console.log(usuario);
+    this.router.navigate(['/auth/login']);
   }
 
   toggleVisibility() {

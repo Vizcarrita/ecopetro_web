@@ -69,7 +69,7 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit {
     }
   
     getData() {
-      this.usuariosService.getUsuarios().subscribe(customers => {
+      this.usuariosService.getCustomer().subscribe(customers => {
         this.customers = customers;
         this.dataSource.data = customers;
       });

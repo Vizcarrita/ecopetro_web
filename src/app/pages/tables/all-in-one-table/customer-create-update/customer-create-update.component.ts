@@ -56,6 +56,7 @@ export class CustomerCreateUpdateComponent implements OnInit {
   createCustomer() {
     const customer = this.form.value;
     this.usuariosService.addNewCustomer(customer).subscribe();
+    console.log(customer);
     this.dialogRef.close(customer);
   }
 

@@ -11,24 +11,35 @@
         <div fxFlex="auto" fxLayout="column">
           <mat-form-field fxFlex="grow">
             <mat-label>Nombre</mat-label>
-            <input matInput required formControlName="name">
+            <input matInput required formControlName="nombreUsuario">
           </mat-form-field>
+
+          <mat-form-field fxFlex="grow">
+            <mat-label>Apellido</mat-label>
+            <input matInput required formControlName="apellido">
+          </mat-form-field>
+          
   
           <mat-form-field fxFlex="grow">
             <mat-label>Correo</mat-label>
-            <input matInput required formControlName="email">
+            <input matInput required formControlName="correo">
+          </mat-form-field>
+
+          <mat-form-field fxFlex="grow">
+            <mat-label>Telefono</mat-label>
+            <input matInput required formControlName="telefono">
           </mat-form-field>
   
-          <mat-form-field fxFlex="grow">
+          <!-- <mat-form-field fxFlex="grow">
             <mat-label>Contraseña</mat-label>
             <input matInput [type]="inputType" formControlName="password" required>
             <button type="button" mat-icon-button matSuffix (click)="toggleVisibility()" matTooltip="Mostrar">
               <mat-icon *ngIf="visible">visibility</mat-icon>
               <mat-icon *ngIf="!visible">visibility_off</mat-icon>
             </button>
-          </mat-form-field>
+          </mat-form-field> -->
   
-          <mat-form-field fxFlex="grow">
+          <!-- <mat-form-field fxFlex="grow">
             <mat-label>Vuelva a introduccir la contrasseña</mat-label>
             <input matInput [type]="inputType" formControlName="passwordConfirm" required>
             <button type="button" mat-icon-button matSuffix (click)="toggleVisibility()" matTooltip="Mostrar">
@@ -36,7 +47,7 @@
               <mat-icon *ngIf="!visible">visibility_off</mat-icon>
             </button>
             <mat-hint>Por favor, repita su contraseña</mat-hint>
-          </mat-form-field>
+          </mat-form-field> -->
         </div>
   
         <div fxLayout="row" fxLayoutAlign="center center">

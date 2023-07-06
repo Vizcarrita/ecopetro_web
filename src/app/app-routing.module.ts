@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes, CanActivate } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { ComingSoonComponent } from './no-pages-found/coming-soon.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-  },
-  {
-    path: 'forgot-password',
-    loadChildren: () => import('./pages/authentication/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule),
   },
   {
     path: '',
@@ -73,7 +70,9 @@ const routes: Routes = [
         path: 'blank',
         loadChildren: () => import('./pages/blank/blank.module').then(m => m.BlankModule),
       },
-    ]
+    ],
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard]
   },
   {
     path: '**',

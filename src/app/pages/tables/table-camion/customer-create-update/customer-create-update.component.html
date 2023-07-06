@@ -1,4 +1,4 @@
-<div mat-dialog-title>Customer</div>
+<div mat-dialog-title>Camion</div>
 
 <form [formGroup]="form" (ngSubmit)="save()">
   <mat-dialog-content>
@@ -23,16 +23,9 @@
         <input type="text" formControlName="capacidad" matInput>
       </mat-form-field>
     </div>
-
-    <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap.gt-sm="24px">
-      <mat-form-field fxFlex>
-        <mat-label>Estado</mat-label>
-        <input type="text" formControlName="estado" matInput>
-      </mat-form-field>
-    </div>
   </mat-dialog-content>
   <mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
-    <button *ngIf="isCreateMode()" mat-button [disabled]="!form.valid">Agregar Usuario</button>
-    <button *ngIf="isUpdateMode()" mat-button [disabled]="!form.valid">Actualizar Usuario</button>
+    <button *ngIf="isCreateMode()" mat-button [disabled]="!form.valid">Agregar Camion</button>
+    <button *ngIf="isUpdateMode()" mat-button [disabled]="!form.valid">Actualizar Camion</button>
   </mat-dialog-actions>
 </form>

@@ -39,7 +39,10 @@
           <ng-container *ngIf="column.isModelProperty" [matColumnDef]="column.property">
             <th *matHeaderCellDef mat-header-cell mat-sort-header> {{ column.name }}</th>
             <td *matCellDef="let row" mat-cell>
-              {{ row[column.property] }}
+              <ng-container *ngIf="column.name != 'Estado'">
+                {{ row[column.property] }}
+              </ng-container>
+              {{ row[column.property].nombreEstadoCamion }}
             </td>
           </ng-container>
         </ng-container>

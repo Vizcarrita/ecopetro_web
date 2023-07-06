@@ -15,11 +15,11 @@ export class CustomerCreateUpdateComponent implements OnInit {
   mode: 'create' | 'update' = 'create';
 
   form: FormGroup = this.fb.group({
-    idCamion: [],
+    idCamion:[],
     patente: [,[Validators.required]],
     marca: [,[Validators.required]],
     capacidad: [,[Validators.required]],
-    estado: [,[Validators.required]],
+    fkidEstadoCamion: [],
   });
 
   constructor(@Inject(MAT_DIALOG_DATA) public defaults: Truck,
@@ -36,7 +36,7 @@ export class CustomerCreateUpdateComponent implements OnInit {
         patente: this.defaults.patente,
         marca: this.defaults.marca,
         capacidad: this.defaults.capacidad,
-        estado: this.defaults.fkidEstadoCamion.nombreEstadoCamion
+        fkidEstadoCamion: this.defaults.fkidEstadoCamion
       });
     } else {
       this.defaults = {} as Truck;
@@ -59,7 +59,7 @@ export class CustomerCreateUpdateComponent implements OnInit {
 
   updateCustomer() {
     const truck = this.form.value;
-    truck.idCamion = this.form.value;
+    this.camionesService.updateTruck(truck).subscribe();
     this.dialogRef.close(truck);
   }
 

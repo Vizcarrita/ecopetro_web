@@ -29,6 +29,6 @@ export class CamionesService {
     }
     
     deleteTruck(idCamion: number): Observable<Truck>{
-        return this.http.delete<Truck>(`${this.baseUrl}/usuarios/${idCamion}` );
+        return this.http.delete<Truck>(`${this.baseUrl}/camiones/${idCamion}` );
     }
 }

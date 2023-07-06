@@ -31,7 +31,6 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit {
   
     @Input()
     columns: ListColumn[] = [
-      { name: 'Checkbox', property: 'checkbox', visible: false },
       { name: 'Patente', property: 'patente', visible: true, isModelProperty: true },
       { name: 'Marca', property: 'marca', visible: true, isModelProperty: true },
       { name: 'Capacidad', property: 'capacidad', visible: true, isModelProperty: true },
@@ -55,7 +54,7 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit {
     ngOnInit() {
   
       this.getData();
-
+      
       this.dataSource = new MatTableDataSource();
   
       this.data$.pipe(
@@ -112,10 +111,7 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit {
     }
     
     deleteCustomer(truck) {
-      /**
-       * Here we are updating our local array.
-       * You would probably make an HTTP request here.
-       */
+      this.camionesService.deleteTruck(truck.idCamion).subscribe();
       this.trucks.splice(this.trucks.findIndex((existingTruck) => existingTruck.idCamion === truck.idCamion), 1);
       this.subject$.next(this.trucks);
     }

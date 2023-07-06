@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Customer } from '../../../../models/customer.model';
-import { UsuariosService } from '../../../../services/usuarios.service';
+import { Truck } from '../../../../models/truck.model';
+import { CamionesService } from 'src/app/services/camiones.service';
 
 @Component({
   selector: 'fury-customer-create-update',
@@ -11,30 +11,36 @@ import { UsuariosService } from '../../../../services/usuarios.service';
 })
 export class CustomerCreateUpdateComponent implements OnInit {
 
-  customers: Customer[]=[];
 
   mode: 'create' | 'update' = 'create';
 
   form: FormGroup = this.fb.group({
-    nombreUsuario: [,[Validators.required]],
-    apellido: [,[Validators.required]],
-    correo: [,[Validators.required]],
-    telefono: [,[Validators.required]],
+    idCamion: [],
+    patente: [,[Validators.required]],
+    marca: [,[Validators.required]],
+    capacidad: [,[Validators.required]],
+    estado: [,[Validators.required]],
   });
 
-  constructor(@Inject(MAT_DIALOG_DATA) public defaults: Customer,
+  constructor(@Inject(MAT_DIALOG_DATA) public defaults: Truck,
               private dialogRef: MatDialogRef<CustomerCreateUpdateComponent>,
               private fb: FormBuilder,
-              private usuariosService:UsuariosService) {
+              private camionesService: CamionesService) {
   }
 
   ngOnInit() {
     if (this.defaults) {
       this.mode = 'update';
+      this.form.patchValue({
+        idCamion: this.defaults.idCamion,
+        patente: this.defaults.patente,
+        marca: this.defaults.marca,
+        capacidad: this.defaults.capacidad,
+        estado: this.defaults.fkidEstadoCamion.nombreEstadoCamion
+      });
     } else {
-      this.defaults = {} as Customer;
+      this.defaults = {} as Truck;
     }
-    console.log('Valor de defaults:', this.defaults);
   }
 
   save() {
@@ -46,16 +52,15 @@ export class CustomerCreateUpdateComponent implements OnInit {
   }
 
   createCustomer() {
-    const customer = this.form.value;
-    this.usuariosService.addNewCustomer(customer).subscribe();
-    this.dialogRef.close(customer);
+    const truck = this.form.value;
+    this.camionesService.addNewTruck(truck).subscribe();
+    this.dialogRef.close(truck);
   }
 
   updateCustomer() {
-    const customer = this.form.value;
-    customer.idUsuario = this.form.value;
-
-    this.dialogRef.close(customer);
+    const truck = this.form.value;
+    truck.idCamion = this.form.value;
+    this.dialogRef.close(truck);
   }
 
   isCreateMode() {

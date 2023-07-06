@@ -8,6 +8,7 @@ import { filter } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
 import { SplashScreenService } from '../@fury/services/splash-screen.service';
 import { UsuariosService } from './services/usuarios.service';
+import { Customer } from './models/customer.model';
 
 @Component({
   selector: 'fury-root',
@@ -63,11 +64,10 @@ export class AppComponent {
         position: 15,
       },
       {
-        name: 'Mantenciones',
+        name: 'Camiones',
         routeOrFunction: '/mantenciones/camion',
-        icon: 'build',
-        badge: '3',
-        badgeColor: '#ff4040',
+        icon: 'local_shipping',
+        badgeColor: '#32CD32',
         position: 20,
       },
       {

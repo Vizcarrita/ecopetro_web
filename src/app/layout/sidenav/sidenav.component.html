@@ -32,13 +32,13 @@
       <h5 class="sidenav-user-email">User@example.com</h5>
 
       <div class="sidenav-user-icons" fxLayout="row">
-        <a [routerLink]="['/tables/all-in-one-table']" mat-icon-button>
+        <a [routerLink]="['/table/users']" mat-icon-button>
           <mat-icon>assignment</mat-icon>
         </a>
         <a [routerLink]="['/apps/calendar']" mat-icon-button>
           <mat-icon>date_range</mat-icon>
         </a>
-        <a [routerLink]="['/login']" mat-icon-button>
+        <a (click)="logout()" mat-icon-button>
           <mat-icon>exit_to_app</mat-icon>
         </a>
       </div>

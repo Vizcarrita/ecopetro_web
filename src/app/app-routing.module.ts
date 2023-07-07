@@ -51,11 +51,11 @@ const routes: Routes = [
         loadChildren: () => import('./pages/page-layouts/page-layouts.module').then(m => m.PageLayoutsModule),
       },
       {
-        path: 'tablas/usuarios',
+        path: 'table/users',
         loadChildren: () => import('./pages/tables/all-in-one-table/all-in-one-table.module').then(m => m.AllInOneTableModule),
       },
       {
-        path: 'mantenciones/camion',
+        path: 'table/trucks',
         loadChildren: () => import('./pages/tables/table-camion/all-in-one-table.module').then(m => m.AllInOneTableModule),
       },
       {

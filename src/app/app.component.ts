@@ -58,14 +58,14 @@ export class AppComponent {
       },
       {
         name: 'Lista de usuarios',
-        routeOrFunction: '/tablas/usuarios',
+        routeOrFunction: '/table/users',
         icon: 'assignment',
         badgeColor: '#2196F3',
         position: 15,
       },
       {
         name: 'Camiones',
-        routeOrFunction: '/mantenciones/camion',
+        routeOrFunction: '/table/trucks',
         icon: 'local_shipping',
         badgeColor: '#32CD32',
         position: 20,

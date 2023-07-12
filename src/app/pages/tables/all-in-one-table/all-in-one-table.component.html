@@ -27,19 +27,35 @@
         </ng-container>
 
         <!-- Image Column -->
-        <ng-container matColumnDef="image">
+        <!-- <ng-container matColumnDef="image">
           <th *matHeaderCellDef class="image-cell" mat-header-cell></th>
           <td *matCellDef="let row" class="image-cell" mat-cell>
             <img src="http://i.pravatar.cc/30?u={{ row.name }}">
           </td>
-        </ng-container>
+        </ng-container> -->
 
         <!-- fullName Column -->
         <ng-container *ngFor="let column of columns">
           <ng-container *ngIf="column.isModelProperty" [matColumnDef]="column.property">
             <th *matHeaderCellDef mat-header-cell mat-sort-header> {{ column.name }}</th>
             <td *matCellDef="let row" mat-cell>
-              {{ row[column.property] }}
+              <ng-container *ngIf="column.name == 'Foto'">
+                <ng-container *ngIf="row[column.property] != null">
+                  <th *matHeaderCellDef class="image-cell" mat-header-cell></th>
+                  <td  class="image-cell" mat-cell>
+                    <img src="https://ecopetro.cl/EcoPetroBEV2-1/API/fotousuarios/{{row[column.property].nombreFotoUsuario}}">  
+                  </td>
+                </ng-container>
+                <ng-container *ngIf="row[column.property] == null">
+                  <th *matHeaderCellDef class="image-cell" mat-header-cell></th>
+                  <td  class="image-cell" mat-cell>
+                    <img src="https://ecopetro.cl/EcoPetroBEV2-1/API/fotousuarios/Default.png">
+                  </td>  
+                </ng-container>
+              </ng-container>
+              <ng-container *ngIf="column.name != 'Foto'">
+                {{ row[column.property] }}
+              </ng-container>
             </td>
           </ng-container>
         </ng-container>

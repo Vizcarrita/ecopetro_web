@@ -30,7 +30,7 @@ export class AllInOneTableComponent implements OnInit, AfterViewInit {
   
     @Input()
     columns: ListColumn[] = [
-      { name: 'Image', property: 'image', visible: true },
+      { name: 'Foto', property: 'fotoUsuario', visible: true, isModelProperty: true},
       { name: 'Nombre', property: 'nombreUsuario', visible: true, isModelProperty: true },
       { name: 'Apellido', property: 'apellido', visible: true, isModelProperty: true },
       { name: 'Correo', property: 'correo', visible: true, isModelProperty: true },

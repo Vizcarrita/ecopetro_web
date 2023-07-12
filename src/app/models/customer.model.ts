@@ -10,6 +10,7 @@ export class Customer{
   fechaCreacion?  : string;
   FKTipoUsuario?  : FkTipoUsuario;
   estadoUsuario?  : EstadoUsuario;
+  usuarioFoto?   : FotoUsuario;
   constructor(customer){
     this.idUsuario      = customer.idUsuario;
     this.nombreUsuario  = customer.nombreUsuario;
@@ -19,7 +20,12 @@ export class Customer{
     this.telefono       = customer.telefono;
     this.FKTipoUsuario  = customer.FKTipoUsuario;
     this.estadoUsuario  = customer.estadoUsuario;
+    this.usuarioFoto    = customer.usuarioFoto;
   }
+}
+
+export interface FotoUsuario{
+    nombreFotoUsuario : string;
 }
 // get name(){
 //   let name = '';

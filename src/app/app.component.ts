@@ -89,114 +89,114 @@ export class AppComponent {
         position: 35,
         badgeColor: '#009688'
       },
-      {
-        name: 'USER INTERFACE',
-        type: 'subheading',
-        position: 40
-      },
-      {
-        name: 'Components',
-        routeOrFunction: '/components',
-        icon: 'layers',
-        position: 45
-      },
-      {
-        name: 'Forms',
-        icon: 'description',
-        position: 50,
-        subItems: [
-          {
-            name: 'Form Elements',
-            routeOrFunction: '/forms/form-elements',
-            position: 10
-          },
-          {
-            name: 'Form Wizard',
-            routeOrFunction: '/forms/form-wizard',
-            position: 15
-          }
-        ]
-      },
-      {
-        name: 'Drag & Drop',
-        routeOrFunction: '/drag-and-drop',
-        icon: 'mouse',
-        position: 55
-      },
-      {
-        name: 'WYSIWYG Editor',
-        routeOrFunction: '/editor',
-        icon: 'format_shapes',
-        position: 60
-      },
-      {
-        name: 'PAGES',
-        type: 'subheading',
-        position: 65
-      },
-      {
-        name: 'Authentication',
-        icon: 'lock',
-        position: 66,
-        subItems: [
-          {
-            name: 'Login Page',
-            routeOrFunction: '/login',
-            position: 5
-          },
-          {
-            name: 'Register Page',
-            routeOrFunction: '/register',
-            position: 10
-          },
-          {
-            name: 'Forgot Password',
-            routeOrFunction: '/forgot-password',
-            position: 15
-          }
-        ]
-      },
-      {
-        name: 'Page Layouts',
-        icon: 'view_compact',
-        position: 67,
-        subItems: [
-          {
-            name: 'Simple',
-            routeOrFunction: '/page-layouts/simple',
-            position: 5
-          },
-          {
-            name: 'Simple Tabbed',
-            routeOrFunction: '/page-layouts/simple-tabbed',
-            position: 5
-          },
-          {
-            name: 'Card',
-            routeOrFunction: '/page-layouts/card',
-            position: 10
-          },
-          {
-            name: 'Card Tabbed',
-            routeOrFunction: '/page-layouts/card-tabbed',
-            position: 15
-          },
-        ],
-        badge: '4',
-        badgeColor: '#4CAF50'
-      },
-      {
-        name: 'Blank',
-        routeOrFunction: '/blank',
-        icon: 'picture_in_picture',
-        position: 69
-      },
-      {
-        name: 'Material Icons',
-        routeOrFunction: '/icons',
-        icon: 'grade',
-        position: 75
-      },
+      // {
+      //   name: 'USER INTERFACE',
+      //   type: 'subheading',
+      //   position: 40
+      // },
+      // {
+      //   name: 'Components',
+      //   routeOrFunction: '/components',
+      //   icon: 'layers',
+      //   position: 45
+      // },
+      // {
+      //   name: 'Forms',
+      //   icon: 'description',
+      //   position: 50,
+      //   subItems: [
+      //     {
+      //       name: 'Form Elements',
+      //       routeOrFunction: '/forms/form-elements',
+      //       position: 10
+      //     },
+      //     {
+      //       name: 'Form Wizard',
+      //       routeOrFunction: '/forms/form-wizard',
+      //       position: 15
+      //     }
+      //   ]
+      // },
+      // {
+      //   name: 'Drag & Drop',
+      //   routeOrFunction: '/drag-and-drop',
+      //   icon: 'mouse',
+      //   position: 55
+      // },
+      // {
+      //   name: 'WYSIWYG Editor',
+      //   routeOrFunction: '/editor',
+      //   icon: 'format_shapes',
+      //   position: 60
+      // },
+      // {
+      //   name: 'PAGES',
+      //   type: 'subheading',
+      //   position: 65
+      // },
+      // {
+      //   name: 'Authentication',
+      //   icon: 'lock',
+      //   position: 66,
+      //   subItems: [
+      //     {
+      //       name: 'Login Page',
+      //       routeOrFunction: '/login',
+      //       position: 5
+      //     },
+      //     {
+      //       name: 'Register Page',
+      //       routeOrFunction: '/register',
+      //       position: 10
+      //     },
+      //     {
+      //       name: 'Forgot Password',
+      //       routeOrFunction: '/forgot-password',
+      //       position: 15
+      //     }
+      //   ]
+      // },
+      // {
+      //   name: 'Page Layouts',
+      //   icon: 'view_compact',
+      //   position: 67,
+      //   subItems: [
+      //     {
+      //       name: 'Simple',
+      //       routeOrFunction: '/page-layouts/simple',
+      //       position: 5
+      //     },
+      //     {
+      //       name: 'Simple Tabbed',
+      //       routeOrFunction: '/page-layouts/simple-tabbed',
+      //       position: 5
+      //     },
+      //     {
+      //       name: 'Card',
+      //       routeOrFunction: '/page-layouts/card',
+      //       position: 10
+      //     },
+      //     {
+      //       name: 'Card Tabbed',
+      //       routeOrFunction: '/page-layouts/card-tabbed',
+      //       position: 15
+      //     },
+      //   ],
+      //   badge: '4',
+      //   badgeColor: '#4CAF50'
+      // },
+      // {
+      //   name: 'Blank',
+      //   routeOrFunction: '/blank',
+      //   icon: 'picture_in_picture',
+      //   position: 69
+      // },
+      // {
+      //   name: 'Material Icons',
+      //   routeOrFunction: '/icons',
+      //   icon: 'grade',
+      //   position: 75
+      // },
     ]);
   }
 
